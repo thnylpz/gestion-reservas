@@ -3,10 +3,9 @@ const app = require('../src/app');
 
 describe('API Reservas', () => {
 
-  test('GET /health responde UP', async () => {
-    const res = await request(app).get('/health');
+  test('GET /dashboard responde 200', async () => {
+    const res = await request(app).get('/dashboard');
     expect(res.statusCode).toBe(200);
-    expect(res.body.status).toBe("UP");
   });
 
   test('POST /reservas crea reserva', async () => {
@@ -28,5 +27,10 @@ describe('API Reservas', () => {
 
     expect(res.statusCode).toBe(400);
   });
+
+  test('GET /reservar responde 200', async () => {
+  const res = await request(app).get('/reservar');
+  expect(res.statusCode).toBe(200);
+    });
 
 });
